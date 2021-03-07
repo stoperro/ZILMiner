@@ -115,8 +115,9 @@ void EthGetworkClient::begin_connect()
         m_connect_timer.async_wait(m_io_strand.wrap(boost::bind(
             &EthGetworkClient::connect_timer_elapsed, this, boost::asio::placeholders::error)));
 
-        m_socket.async_connect(
-            m_endpoint, m_io_strand.wrap(boost::bind(&EthGetworkClient::handle_connect, this, _1)));
+        m_socket.async_connect(m_endpoint,
+            m_io_strand.wrap(
+                boost::bind(&EthGetworkClient::handle_connect, this, ::boost::placeholders::_1)));
     }
     else
     {

@@ -63,8 +63,8 @@ find_package(Boost CONFIG REQUIRED COMPONENTS system filesystem thread)
 hunter_add_package(jsoncpp)
 find_package(jsoncpp CONFIG REQUIRED)
 
-hunter_add_package(ethash)
-find_package(ethash CONFIG REQUIRED)
+#hunter_add_package(ethash)
+#find_package(ethash CONFIG REQUIRED)
 
 configureProject()
 
@@ -90,6 +90,7 @@ endif()
 
 cable_add_buildinfo_library(PROJECT_NAME ${PROJECT_NAME})
 
+add_subdirectory(cmake/ethash)
 add_subdirectory(libdevcore)
 add_subdirectory(libethcore)
 add_subdirectory(libhwmon)
